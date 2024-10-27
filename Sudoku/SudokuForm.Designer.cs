@@ -98,7 +98,7 @@ namespace Sudoku
             btnReset.Name = "btnReset";
             btnReset.Size = new System.Drawing.Size(86, 31);
             btnReset.TabIndex = 3;
-            btnReset.Text = "Reset";
+            btnReset.Text = "Làm mới";
             btnReset.UseVisualStyleBackColor = false;
             btnReset.Click += BtnReset_Click;
             // 
@@ -129,9 +129,9 @@ namespace Sudoku
             cmbBoxMode.Cursor = System.Windows.Forms.Cursors.Hand;
             cmbBoxMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cmbBoxMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmbBoxMode.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cmbBoxMode.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             cmbBoxMode.FormattingEnabled = true;
-            cmbBoxMode.Items.AddRange(new object[] { "Easy", "Medium", "Hard" });
+            cmbBoxMode.Items.AddRange(new object[] { "Dễ", "Trung bình", "Khó" });
             cmbBoxMode.Location = new System.Drawing.Point(33, 64);
             cmbBoxMode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             cmbBoxMode.Name = "cmbBoxMode";
