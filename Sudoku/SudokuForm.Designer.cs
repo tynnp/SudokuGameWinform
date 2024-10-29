@@ -48,6 +48,7 @@ namespace Sudoku
             messageTimer = new System.Windows.Forms.Timer(components);
             player_background = new SoundPlayer();
             BtnCachChoi = new System.Windows.Forms.Button();
+            BtnMusic = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)gridView).BeginInit();
             SuspendLayout();
             // 
@@ -267,12 +268,33 @@ namespace Sudoku
             BtnCachChoi.UseVisualStyleBackColor = false;
             BtnCachChoi.Click += BtnCachChoi_Click;
             // 
+            // BtnMusic
+            // 
+            BtnMusic.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            BtnMusic.AutoSize = true;
+            BtnMusic.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            BtnMusic.BackColor = System.Drawing.Color.Yellow;
+            BtnMusic.Cursor = System.Windows.Forms.Cursors.Hand;
+            BtnMusic.FlatAppearance.BorderSize = 0;
+            BtnMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BtnMusic.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            BtnMusic.ForeColor = System.Drawing.Color.Black;
+            BtnMusic.Location = new System.Drawing.Point(753, 628);
+            BtnMusic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            BtnMusic.Name = "BtnMusic";
+            BtnMusic.Size = new System.Drawing.Size(61, 30);
+            BtnMusic.TabIndex = 11;
+            BtnMusic.Text = "Loa📣";
+            BtnMusic.UseVisualStyleBackColor = false;
+            BtnMusic.Click += BtnMusic_Click;
+            // 
             // SudokuForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(47, 47, 47);
             ClientSize = new System.Drawing.Size(863, 671);
+            Controls.Add(BtnMusic);
             Controls.Add(BtnCachChoi);
             Controls.Add(btnValidate);
             Controls.Add(gridView);
@@ -314,6 +336,7 @@ namespace Sudoku
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Timer messageTimer;
         private System.Windows.Forms.Button BtnCachChoi;
+        private System.Windows.Forms.Button BtnMusic;
     }
 }
 

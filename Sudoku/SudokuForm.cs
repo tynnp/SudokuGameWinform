@@ -22,12 +22,25 @@ namespace Sudoku
         string gridMode = FormConstants.Easy;
         Grid grid;
         readonly List<Label> cellControls = new List<Label>();
+
+        // Địa chỉ nhạc nền
         SoundPlayer player_background = new SoundPlayer("Audios/sound_backgroundmusic.wav");
+
+        // Thêm biến isMusicPlaying để lưu trạng thái bật/tắt của nhạc nền.
+        bool isMusicPlaying = true;
+
+
+
 
         /// <summary>
         /// SudokuForm Constructor
         /// </summary>
-        public SudokuForm() => InitializeComponent();
+        public SudokuForm()
+        {
+            InitializeComponent();
+            player_background.Load();       
+            player_background.PlayLooping();
+        }
 
         #region Form Loading Event
 
@@ -83,6 +96,15 @@ namespace Sudoku
         /// </summary>
         /// <param name="sender">The Sender</param>
         /// <param name="e">The Event Args</param>
+       
+        // Thêm danh sách để lưu chỉ số các ô đã được khởi tạo
+        readonly List<int> initializedCells = new List<int>();
+
+        /// <summary>
+        /// Generate Button Click Event
+        /// </summary>
+        /// <param name="sender">The Sender</param>
+        /// <param name="e">The Event Args</param>
         private void BtnGenerate_Click(object sender, EventArgs e)
         {
             timerStarted = false;
@@ -97,11 +119,48 @@ namespace Sudoku
             generator.Generate();
             RefreshTheGrid();
 
+            // Lưu lại các ô được khởi tạo để không bị reset khi nhấn làm mới
+            initializedCells.Clear();
+            for (int i = 0; i < grid.TotalRows * grid.TotalColumns; i++)
+            {
+                if (grid.GetCell(i).Value != -1)
+                    initializedCells.Add(i);
+            }
+
             lblStatus.ForeColor = Color.DeepSkyBlue;
             lblStatus.Text = FormConstants.PuzzleGenerated;
 
             messageTimer.Start();
         }
+
+        /// <summary>
+        /// Reset Button Click Event
+        /// </summary>
+        /// <param name="sender">The Sender</param>
+        /// <param name="e">The Event Args</param>
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            timer.Start();
+            timerStarted = false;
+            gridCleared = true;
+
+            // Chỉ reset các ô không nằm trong danh sách initializedCells
+            foreach (var cell in cellControls)
+            {
+                int cellIndex = (int)cell.Tag;
+                if (!initializedCells.Contains(cellIndex))
+                {
+                    cell.Text = string.Empty;
+                    grid.SetCellValue(cellIndex, -1);
+                }
+            }
+
+            lblStatus.ForeColor = Color.White;
+            lblStatus.Text = FormConstants.PuzzleCleared;
+
+            messageTimer.Start();
+        }
+
 
         /// <summary>
         /// Validate Button Click Event
@@ -122,19 +181,28 @@ namespace Sudoku
             {
                 messageColor = Color.LawnGreen;
                 message = FormConstants.CongratulationsMessage;
-                SoundPlayer player = new SoundPlayer("Audios/sound_victory.wav");
-                player.Play();
+
+                SoundPlayer player_victory = new SoundPlayer("Audios/sound_victory.wav");
+                player_victory.PlaySync();
+
+                player_background.PlayLooping();
+
                 timer.Stop();
             }
             else if (grid.IsGridFilled() && !grid.Solver.ValidateGrid())
             {
                 messageColor = Color.Red;
                 message = FormConstants.PuzzleInvalidSolve;
-                SoundPlayer player = new SoundPlayer("Audios/sound_lose.wav");
-                player.Play();
+
+                SoundPlayer player_lose = new SoundPlayer("Audios/sound_lose.wav");
+                player_lose.PlaySync();
+
+                player_background.PlayLooping();
             }
             else if (!grid.IsGridFilled() && grid.Solver.ValidateGrid(ignoreEmptyCells: true))
+            {
                 message = FormConstants.PuzzleValidButNotCompleted;
+            }
             else
             {
                 messageColor = Color.Red;
@@ -182,20 +250,6 @@ namespace Sudoku
         /// </summary>
         /// <param name="sender">The Sender</param>
         /// <param name="e">The Event Args</param>
-        private void BtnReset_Click(object sender, EventArgs e)
-        {
-            timer.Start();
-            timerStarted = false;
-            gridCleared = true;
-
-            ResetTheGrid();
-
-            player_background.Play();
-            lblStatus.ForeColor = Color.White;
-            lblStatus.Text = FormConstants.PuzzleCleared;
-
-            messageTimer.Start();
-        }
 
         #endregion
 
@@ -460,7 +514,35 @@ namespace Sudoku
 
         private void BtnCachChoi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Luật của trò Sudoku là điền các số từ 1 đến 9 vào một bảng vuông đặc biệt, được chia thành nhiều ô vuông nhỏ hơn, sao cho:\n\nMỗi hàng: Chỉ chứa đúng một lần các số từ 1 đến 9.\nMỗi cột: Cũng chỉ chứa đúng một lần các số từ 1 đến 9.\nMỗi ô vuông con 3x3: Mỗi ô vuông nhỏ 3x3 này cũng phải chứa đủ các số từ 1 đến 9 mà không được trùng lặp.", "Luật chơi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("=====HƯỚNG DẪN TRÒ CHƠI=====\n" +
+                            "Sudoku là một trò chơi giải đố với mục tiêu là điền các con số vào các ô trống sao cho thỏa mãn những quy tắc sau:\n\n" +
+                            "1. Sudoku 4x4\n" +
+                            "- Bảng Sudoku 4x4 bao gồm 4 hàng và 4 cột, được chia thành 4 vùng 2x2.\n" +
+                            "- Mục tiêu: Điền các số từ 1 đến 4 vào các ô trống.\n" +
+                            "- Quy tắc: Mỗi hàng, mỗi cột, và mỗi vùng 2x2 phải chứa các số từ 1 đến 4, không được lặp lại.\n\n" +
+                            "2. Sudoku 9x9\n" +
+                            "- Bảng Sudoku 9x9 bao gồm 9 hàng và 9 cột, được chia thành 9 vùng 3x3.\n" +
+                            "- Mục tiêu: Điền các số từ 1 đến 9 vào các ô trống.\n" +
+                            "- Quy tắc: Mỗi hàng, mỗi cột, và mỗi vùng 3x3 phải chứa các số từ 1 đến 9, không được lặp lại.\n\n" +
+                            "Chúc bạn giải đố thành công !!!",
+                            "Luật chơi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void BtnMusic_Click(object sender, EventArgs e)
+        {
+            if (isMusicPlaying)
+            {
+                player_background.Stop();
+                lblStatus.Text = "Nhạc nền đã tắt.";
+            }
+            else
+            {
+                player_background.PlayLooping();
+                lblStatus.Text = "Nhạc nền đang phát.";
+            }
+
+            // Đổi trạng thái nhạc nền.
+            isMusicPlaying = !isMusicPlaying;
         }
     }
 }
