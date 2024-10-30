@@ -279,7 +279,7 @@ namespace Sudoku
             BtnMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             BtnMusic.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             BtnMusic.ForeColor = System.Drawing.Color.Black;
-            BtnMusic.Location = new System.Drawing.Point(753, 628);
+            BtnMusic.Location = new System.Drawing.Point(770, 628);
             BtnMusic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             BtnMusic.Name = "BtnMusic";
             BtnMusic.Size = new System.Drawing.Size(61, 30);
