@@ -66,7 +66,7 @@ Sudoku Game WinForm là một ứng dụng giải đố Sudoku đầy hấp dẫ
 ## 4. Cài đặt
 ### 4.1. Clone hoặc tải source từ repo
 Để tải mã nguồn có thể dùng lệnh:
-```shell
+```bash
 git clone https://github.com/tynnp/SudokuGameWinform
 ```
 
