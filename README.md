@@ -1,8 +1,8 @@
 # 🧩 Sudoku Game Winform
 
 ## Liên kết 
-- Link nguồn tham khảo: [Truy cập Github](https://github.com/nayanbunny/Sudoku-CSharp)
-- Link bảng chia việc nhóm: [Truy cập Google Sheets](https://docs.google.com/spreadsheets/d/1hnBnJ_pXnE0wcONNGLzlxvVDHWMVgxM2dVseIkLuvBE/edit?usp=sharing)
+- Link nguồn tham khảo: [Truy cập Github](https://github.com/nayanbunny/Sudoku-CSharp).
+- Link bảng chia việc nhóm: [Truy cập Google Sheets](https://docs.google.com/spreadsheets/d/1hnBnJ_pXnE0wcONNGLzlxvVDHWMVgxM2dVseIkLuvBE/edit?usp=sharing).
 
 ## Giới thiệu
 ### 1. Game Sudoku
@@ -20,6 +20,16 @@ Nhóm Chuồn Chuồn Con gồm có các thành viên:
 
 ### 3. Sản phẩm SudoKu Game Winform
 Sudoku Game WinForm là một ứng dụng giải đố Sudoku đầy hấp dẫn và tương tác cao, được xây dựng trên nền tảng Windows Form bằng C#. Với giao diện trực quan, dễ sử dụng, ứng dụng này mang lại trải nghiệm giải đố nhẹ nhàng, gần gũi, đồng thời thử thách người chơi với nhiều mức độ, phù hợp cho cả người mới và những ai muốn nâng cao kỹ năng logic của mình.
+
+Ứng dụng Sudoku Game WinForm được thiết kế với hai kích thước bàn cờ: 4x4 và 9x9, mang đến sự linh hoạt cho người chơi. Người chơi có thể chọn một trong ba chế độ chơi: dễ, trung bình và khó, phù hợp với mọi trình độ. Trải nghiệm chơi thêm phần sinh động với âm thanh thông báo khi thắng hoặc thua, cùng nhạc nền dễ chịu suốt quá trình chơi.
+
+Ứng dụng còn tích hợp các chức năng hỗ trợ hữu ích:
+
+- Kiểm tra: Xác định xem người chơi đã giải đúng hay chưa.
+- Làm mới: Xóa các ô đã điền để bắt đầu lại.
+- Giải: Tự động giải bài Sudoku hiện tại.
+- Cách chơi: Hiển thị hướng dẫn chi tiết để người chơi dễ dàng làm quen với luật chơi.
+- Loa: Cho phép bật hoặc tắt nhạc nền theo sở thích của người chơi.
 
 ## Giao diện và chức năng
 
