@@ -62,3 +62,14 @@ Sudoku Game WinForm là một ứng dụng giải đố Sudoku đầy hấp dẫ
 <p align="center">  
   <img src="images/github/chien_thang.png" alt="chiến thắng"/>
 </p>  
+
+## 4. Cài đặt
+### 4.1. Clone hoặc tải source từ repo
+```
+git clone https://github.com/tynnp/SudokuGameWinform
+```
+
+### 4.2. Mở project bằng Visual Studio 
+Mở với file `Sudoku.sln`.
+
+### 4.3. Build và chạy ứng dụng
