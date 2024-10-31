@@ -31,9 +31,34 @@ Sudoku Game WinForm là một ứng dụng giải đố Sudoku đầy hấp dẫ
 - Cách chơi: Hiển thị hướng dẫn chi tiết để người chơi dễ dàng làm quen với luật chơi.
 - Loa: Cho phép bật hoặc tắt nhạc nền theo sở thích của người chơi.
 
-## Giao diện và chức năng
+## Hình ảnh minh họa
 
 ### 1. Giao diện bàn cờ 4x4
 <p align="center">  
-  <img src="images/github/giao_dien_4x4.png" alt="giao diện 4x4"/>
+  <img src="images/github/giao_dien_4x4.png" alt="giao diện bàn cờ 4x4"/>
 </p>    
+
+### 2. Giao diện bàn cờ 9x9 
+<p align="center">  
+  <img src="images/github/giao_dien_9x9.png" alt="giao diện bàn cờ 9x9"/>
+</p>    
+
+### 3. Hướng dẫn chơi
+<p align="center">  
+  <img src="images/github/huong_dan_choi.png" alt="hướng dẫn chơi"/>
+</p>  
+
+### 4. Bắt đầu trò chơi với bàn cờ 9x9
+<p align="center">  
+  <img src="images/github/giai_ban_co_9x9.png" alt="bắt đầu trò chơi với bàn cờ 9x9"/>
+</p>  
+
+### 5. Bản chọn số cho từng ô
+<p align="center">  
+  <img src="images/github/ban_chon_so.png" alt="bản chọn số cho từng ô"/>
+</p>  
+
+### 6. Chiến thắng
+<p align="center">  
+  <img src="images/github/chien_thang.png" alt="chiến thắng"/>
+</p>  
