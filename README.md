@@ -10,10 +10,12 @@ Sudoku là trò chơi giải đố logic nổi tiếng, thử thách người ch
 
 ### 2. Nhóm Chuồn Chuồn Con
 Nhóm Chuồn Chuồn Con gồm có các thành viên:     
+
 - Nguyễn Ngọc Phú Tỷ - Mã số sinh viên: 49.01.104.172 - Nhóm trưởng.
 - Trần Lê Triều Dương - Mã số sinh viên: 49.01.104.026.
 - Cao Võ Tuấn Kiệt - Mã số sinh viên: 49.01.104.076.
-- Phan Thị Hồng Nhung - Mã số sinh viên: 49.01.104.104.  
+- Phan Thị Hồng Nhung - Mã số sinh viên: 49.01.104.104.
+
 Đều là sinh viên năm hai đến từ khoa Công nghệ thông tin, trường Đại học Sư phạm Thành phố Hồ Chính Minh. 
 
 ### 3. Sản phẩm SudoKu Game Winform
